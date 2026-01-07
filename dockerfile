@@ -1,4 +1,8 @@
 FROM python:3.13
-WORKDIR / app
+WORKDIR / c_projects
 COPY . .
-CMD [ "python","student_grade.py" ]
+RUN pip install --no-cache-dir pytest
+# Run tests at build time (CI)
+RUN pytest -v
+# FIXED entrypoint (never replaced)
+ENTRYPOINT ["python", "student_grade.py"]
