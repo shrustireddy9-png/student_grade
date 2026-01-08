@@ -1,5 +1,5 @@
 FROM python:3.14
-WORKDIR / c_projects
+WORKDIR /c_projects
 COPY . .
 RUN pip install --no-cache-dir pytest
 # Run tests at build time (CI)
